@@ -65,7 +65,7 @@ async function isTypeModule (file) {
 // eslint-disable-next-line no-shadow
 function transformExportDeclarations (path) {
   const { value } = path.node.source
-  if (value.endsWith('.jsx') && value.startsWith('./')) {
+  if (value.endsWith('.jsx') && (value.startsWith('./') || value.startsWith('../'))) {
     // Rewrite .jsx imports to .js:
     path.node.source.value = value.slice(0, -1) // eslint-disable-line no-param-reassign
   }
@@ -110,7 +110,7 @@ async function buildLib () {
         // eslint-disable-next-line no-shadow
         ImportDeclaration (path) {
           let { value } = path.node.source
-          if (value.endsWith('.jsx') && value.startsWith('./')) {
+          if (value.endsWith('.jsx') && (value.startsWith('./') || value.startsWith('../'))) {
             // Rewrite .jsx imports to .js:
             value = path.node.source.value = value.slice(0, -1) // eslint-disable-line no-param-reassign,no-multi-assign
           }

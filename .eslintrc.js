@@ -199,6 +199,7 @@ module.exports = {
         'packages/@uppy/audio/src/**/*.js',
         'packages/@uppy/box/src/**/*.js',
         'packages/@uppy/compressor/src/**/*.js',
+        'packages/@uppy/dashboard/src/**/*.js',
         'packages/@uppy/drag-drop/src/**/*.js',
         'packages/@uppy/drop-target/src/**/*.js',
         'packages/@uppy/dropbox/src/**/*.js',
